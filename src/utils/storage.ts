@@ -290,4 +290,25 @@ export function importFromJson(jsonStr: string): AppData | null {
   }
 }
 
+// -- Share-link helpers ----------------------------------------------------
+
+export function encodeDataForShare(data: AppData): string {
+  const json = JSON.stringify(data);
+  return btoa(unescape(encodeURIComponent(json)));
+}
+
+export function decodeDataFromShare(encoded: string): AppData | null {
+  try {
+    const json = decodeURIComponent(escape(atob(encoded)));
+    return importFromJson(json);
+  } catch {
+    return null;
+  }
+}
+
+export function generateShareUrl(data: AppData): string {
+  const encoded = encodeDataForShare(data);
+  return `${window.location.origin}${window.location.pathname}#data=${encoded}`;
+}
+
 export { createDefaultData };

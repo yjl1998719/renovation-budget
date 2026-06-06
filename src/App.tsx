@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Navigation from './components/Navigation/Navigation';
 import type { Page } from './components/Navigation/Navigation';
 import OverviewPage from './components/OverviewPage/OverviewPage';
@@ -6,11 +6,23 @@ import FundPage from './components/FundPage/FundPage';
 import ExpensesPage from './components/ExpensesPage/ExpensesPage';
 import Toolbar from './components/Toolbar/Toolbar';
 import PageTransition from './components/shared/PageTransition';
-import ToastContainer from './components/shared/ToastContainer';
+import ToastContainer, { showToast } from './components/shared/ToastContainer';
+import { useApp } from './context/AppContext';
 import styles from './App.module.css';
 
 export default function App() {
   const [page, setPage] = useState<Page>('overview');
+  const { importFromShareUrl } = useApp();
+
+  // Check for shared data in URL hash on mount
+  useEffect(() => {
+    if (window.location.hash.startsWith('#data=')) {
+      const ok = importFromShareUrl(window.location.hash);
+      if (ok) {
+        showToast('数据已从分享链接导入', 'info');
+      }
+    }
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className={styles.container}>

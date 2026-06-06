@@ -3,7 +3,7 @@ import type { AppData, RenovationStage } from '../types/budget';
 import type { FundSource, FundSummary } from '../types/fund';
 import type { ExpenseRecord, ExpensesGrandSummary } from '../types/expense';
 import { calculateFundSummary, calculateExpensesGrandSummary, formatCurrency } from '../utils/calculations';
-import { loadData, saveData, exportToJson, importFromJson, createDefaultData } from '../utils/storage';
+import { loadData, saveData, exportToJson, importFromJson, createDefaultData, generateShareUrl, decodeDataFromShare } from '../utils/storage';
 import { generateId } from '../utils/idGenerator';
 
 // -- Actions ---------------------------------------------------------------
@@ -101,8 +101,10 @@ interface AppContextValue {
   updateExpense: (expenseId: string, updates: Partial<ExpenseRecord>) => void;
   deleteExpense: (expenseId: string) => void;
   importData: (jsonStr: string) => boolean;
+  importFromShareUrl: (hash: string) => boolean;
   resetData: () => void;
   handleExport: () => void;
+  handleShare: () => void;
   formatMoney: (amount: number) => string;
 }
 
@@ -154,6 +156,24 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
   }, []);
   const resetData = useCallback(() => dispatch({ type: 'RESET_DATA' }), []);
   const handleExport = useCallback(() => exportToJson(data), [data]);
+  const handleShare = useCallback(() => {
+    const url = generateShareUrl(data);
+    navigator.clipboard.writeText(url).then(() => {
+      // Clipboard write succeeded
+    }).catch(() => {
+      // Fallback: show the URL in a prompt
+    });
+  }, [data]);
+  const importFromShareUrl = useCallback((hash: string): boolean => {
+    if (!hash.startsWith('#data=')) return false;
+    const encoded = hash.slice(6);
+    const parsed = decodeDataFromShare(encoded);
+    if (!parsed) return false;
+    dispatch({ type: 'IMPORT_DATA', data: parsed });
+    // Clean URL
+    window.history.replaceState(null, '', window.location.pathname);
+    return true;
+  }, []);
   const formatMoney = useCallback((amount: number) => formatCurrency(amount), []);
 
   const value = useMemo<AppContextValue>(
@@ -161,12 +181,12 @@ export function AppProvider({ children }: { children: React.ReactNode }) {
       data, stages, fundSummary, expensesSummary,
       addFundSource, updateFundSource, deleteFundSource, setAllocation,
       addExpense, updateExpense, deleteExpense,
-      importData: importDataFn, resetData, handleExport, formatMoney,
+      importData: importDataFn, importFromShareUrl, resetData, handleExport, handleShare, formatMoney,
     }),
     [data, stages, fundSummary, expensesSummary,
      addFundSource, updateFundSource, deleteFundSource, setAllocation,
      addExpense, updateExpense, deleteExpense,
-     importDataFn, resetData, handleExport, formatMoney],
+     importDataFn, importFromShareUrl, resetData, handleExport, handleShare, formatMoney],
   );
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
