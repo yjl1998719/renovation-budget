@@ -1,0 +1,25 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.2s ease-out;
+}
+.overlayClosing {
+  animation: fadeOut 0.2s ease-out forwards;
+}
+.modal {
+  background: #fff;
+  border-radius: 14px;
+  padding: 24px;
+  max-width: 380px;
+  width: 90%;
+  box-shadow: 0 12px 40px rgba(26, 26, 46, 0.12);
+  animation: scaleIn 0.2s ease-out;
+}
+.modalClosing {
+  animation: scaleOut 0.2s ease-out forwards;
+}

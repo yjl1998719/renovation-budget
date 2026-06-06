@@ -1,0 +1,39 @@
+.toolbar {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  padding: 0 16px 28px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 18px;
+  border: 1.5px solid var(--border);
+  border-radius: 24px;
+  background: var(--card-bg);
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  letter-spacing: 0.5px;
+}
+
+.btn:hover {
+  background: var(--card-bg);
+  color: var(--text-primary);
+  border-color: var(--accent);
+  box-shadow: var(--shadow-xs);
+  transform: translateY(-1px);
+}
+
+.dangerBtn:hover {
+  color: var(--danger);
+  border-color: var(--danger);
+}
+
+.hiddenInput {
+  display: none;
+}

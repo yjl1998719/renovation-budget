@@ -1,0 +1,37 @@
+.wrapper {
+  width: 100%;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+  font-size: 13px;
+}
+.label {
+  color: #666;
+}
+.value {
+  color: #333;
+  font-weight: 600;
+}
+.track {
+  height: 8px;
+  background: #eee;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+.fillNormal {
+  background: linear-gradient(90deg, #95b8d1, #7ec8c8);
+}
+.fillWarn {
+  background: linear-gradient(90deg, #f0c75e, #e8a87c);
+}
+.fillOver {
+  background: linear-gradient(90deg, #e8a87c, #e07a5f);
+}

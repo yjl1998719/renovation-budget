@@ -1,0 +1,237 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.headerBar {
+  background: linear-gradient(135deg, #95b8d1, #7ec8c8);
+  border-radius: 16px;
+  padding: 20px 24px;
+  color: #fff;
+}
+.headerTitle {
+  font-size: 13px;
+  opacity: 0.85;
+  margin-bottom: 6px;
+}
+.headerAmounts {
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+.headerMain {
+  font-size: 24px;
+  font-weight: 700;
+}
+.headerSub {
+  font-size: 13px;
+  opacity: 0.8;
+}
+.headerDetail {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+  font-size: 12px;
+  opacity: 0.75;
+}
+.headerProgress {
+  margin-top: 10px;
+}
+.progressTrack {
+  height: 6px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.progressFill {
+  height: 100%;
+  background: #fff;
+  border-radius: 3px;
+  transition: width 0.5s ease;
+}
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+}
+.stageHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  cursor: pointer;
+  transition: background 0.15s;
+  user-select: none;
+}
+.stageHeader:hover {
+  background: #fafafa;
+}
+.stageIcon {
+  font-size: 20px;
+}
+.stageInfo {
+  flex: 1;
+  min-width: 0;
+}
+.stageName {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+}
+.stageMeta {
+  font-size: 12px;
+  color: #999;
+  margin-top: 2px;
+}
+.stageRight {
+  text-align: right;
+  font-size: 13px;
+}
+.stageSpent {
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+}
+.stageEstimate {
+  font-size: 11px;
+  color: #999;
+}
+.chevron {
+  transition: transform 0.2s;
+  color: #ccc;
+}
+.chevronOpen {
+  transform: rotate(90deg);
+}
+.stageBody {
+  border-top: 1px solid #f5f5f5;
+  padding: 0 16px;
+}
+
+/* -- Expense Row -- */
+.expenseRow {
+  padding: 12px 0;
+  border-bottom: 1px solid #f8f8f8;
+}
+.expenseRow:last-child {
+  border-bottom: none;
+}
+.expenseTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+.expenseName {
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+}
+.expenseVendor {
+  font-size: 11px;
+  color: #bbb;
+  margin-top: 2px;
+}
+.expenseEstimate {
+  font-size: 13px;
+  color: #999;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.expenseBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 6px;
+}
+.payments {
+  display: flex;
+  gap: 12px;
+}
+.paymentItem {
+  font-size: 12px;
+  color: #888;
+  white-space: nowrap;
+}
+.paymentLabel {
+  color: #bbb;
+}
+.paymentUnpaid {
+  font-size: 12px;
+  white-space: nowrap;
+}
+.paymentVal {
+  font-weight: 600;
+  color: #666;
+}
+.paymentValPaid {
+  color: #7ec8c8;
+}
+.paymentValUnpaid {
+  color: #e07a5f;
+}
+.totalPaid {
+  font-size: 14px;
+  font-weight: 700;
+  color: #e8a87c;
+}
+.expenseActions {
+  display: flex;
+  gap: 2px;
+}
+.expenseBtn {
+  width: 26px;
+  height: 26px;
+  border: none;
+  background: #f5f5f5;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  transition: background 0.2s;
+}
+.expenseBtn:hover {
+  background: #eee;
+}
+
+.empty {
+  text-align: center;
+  padding: 20px 0;
+  color: #ccc;
+  font-size: 13px;
+}
+.addBtn {
+  width: 100%;
+  padding: 10px;
+  border: 1px dashed #ddd;
+  background: none;
+  border-radius: 8px;
+  color: #999;
+  font-size: 13px;
+  cursor: pointer;
+  margin: 10px 0;
+  transition: border-color 0.2s, color 0.2s;
+}
+.addBtn:hover {
+  border-color: #e8a87c;
+  color: #e8a87c;
+}
+.payBtn {
+  padding: 4px 10px;
+  border: 1px solid #7ec8c8;
+  border-radius: 6px;
+  background: #fff;
+  color: #7ec8c8;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.payBtn:hover {
+  background: #7ec8c8;
+  color: #fff;
+}

@@ -1,0 +1,40 @@
+.title {
+  margin: 0 0 8px;
+  font-size: 17px;
+  color: #333;
+}
+.message {
+  margin: 0 0 20px;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+}
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.cancelBtn,
+.confirmBtn {
+  padding: 8px 20px;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.cancelBtn {
+  background: #f0f0f0;
+  color: #666;
+}
+.confirmBtn {
+  background: #7ec8c8;
+  color: #fff;
+}
+.confirmBtn.danger {
+  background: #e07a5f;
+}
+.cancelBtn:hover,
+.confirmBtn:hover {
+  opacity: 0.85;
+}

@@ -1,0 +1,63 @@
+.title {
+  margin: 0 0 4px;
+  font-size: 17px;
+  color: #333;
+}
+.info {
+  margin: 0 0 4px;
+  font-size: 14px;
+  color: #666;
+}
+.amount {
+  margin: 0 0 16px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #e07a5f;
+}
+.field {
+  margin-bottom: 16px;
+}
+.fieldLabel {
+  display: block;
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 4px;
+}
+.fieldInput {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  box-sizing: border-box;
+  outline: none;
+}
+.fieldInput:focus {
+  border-color: #7ec8c8;
+}
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.cancelBtn,
+.payBtn {
+  padding: 9px 20px;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.cancelBtn {
+  background: #f0f0f0;
+  color: #666;
+}
+.payBtn {
+  background: #7ec8c8;
+  color: #fff;
+}
+.cancelBtn:hover,
+.payBtn:hover {
+  opacity: 0.85;
+}

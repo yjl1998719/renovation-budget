@@ -1,0 +1,62 @@
+.title {
+  margin: 0 0 16px;
+  font-size: 17px;
+  color: #333;
+}
+.stageInfo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  font-size: 15px;
+  color: #555;
+}
+.field {
+  margin-bottom: 14px;
+}
+.fieldLabel {
+  display: block;
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 4px;
+}
+.fieldInput {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.fieldInput:focus {
+  border-color: #e8a87c;
+}
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 18px;
+}
+.cancelBtn,
+.saveBtn {
+  padding: 9px 20px;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.cancelBtn {
+  background: #f0f0f0;
+  color: #666;
+}
+.saveBtn {
+  background: #7ec8c8;
+  color: #fff;
+}
+.cancelBtn:hover,
+.saveBtn:hover {
+  opacity: 0.85;
+}
